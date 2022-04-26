@@ -1,7 +1,7 @@
 '''
 https://leetcode.com/submissions/detail/687763134/
 '''
-from typing import * 
+from typing import *
 
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
@@ -35,17 +35,17 @@ class Solution:
                     cnt += 1
         return cnt
 
-from __solver import Solver
 # copy example inputs
 inputs =[
 [["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
 ,[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
 ]
 
-# solve for one input 
 # target function MUST ALWAYS be the last one
-# Solver.solve(Solution,inputs[1])
+from __solver import Solver
 
+# solve for one input 
+Solver.solve(Solution,inputs[1])
 # solve for multiple inputs 
 for input in inputs:
     ret = Solver.solve(Solution,input)
