@@ -1,5 +1,10 @@
+# for Solver
 import inspect
 import json
+
+# for solving problems on leetcode
+from typing import *
+import itertools, collections
 
 class Solver:
     """ Leetcode Solver. 
@@ -26,4 +31,5 @@ class Solver:
             'input':args,
             'output':_output
         })
+        print(ret)
         return ret
