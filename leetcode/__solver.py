@@ -15,7 +15,12 @@ class Solver:
     #     print("solver called for {method_name}")
     #     self.input = input
 
-    def solve(Solution, args):
+    # def solve_all(Solution, allArgs):
+    #     deque = collections.deque(allArgs)
+    #     Solver.solve(Solution,)
+        
+
+    def solve(Solution, *args):
         if Solution is None or args is None:
             return
         cl = Solution
@@ -24,7 +29,7 @@ class Solver:
         # target function MUST ALWAYS be the last one
         target_method = members[-1]
         (name, f) = target_method
-        _output = f(cl,(args))
+        _output = f(cl,*args)
 
         ret = json.dumps({
             'name':name,

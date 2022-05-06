@@ -10,5 +10,5 @@ PS questions dump
 ([Local solver code](./leetcode/__solver.py), [ex](./leetcode/__solver-sample.py))
 
 
-<!--dataframe here-->
-<!-- idx, questionSlug, AC, when, bookSol -->
+<!-- <div id='leetcode'></div> -->
+<!-- idx, questionSlug, status(AC or 0), timestamp, bookSol -->
