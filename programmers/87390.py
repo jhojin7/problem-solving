@@ -11,14 +11,19 @@ def solution(n,left, right):
     #     answer += mat[i]
     # return (answer[left:right+1])
 
-    # time limit AC
+    # # time limit AC
+    # answer = []
+    # for i in range(left//n-1,right//n+1):
+    #     for j in range(n):
+    #         ansIdx = i*n+j 
+    #         if ansIdx >= left and ansIdx <= right:
+    #             if i<=j: answer.append(j+1)
+    #             else: answer.append(i+1)
+    # return answer
+
     answer = []
-    for i in range(left//n-1,right//n+1):
-        for j in range(n):
-            ansIdx = i*n+j 
-            if ansIdx >= left and ansIdx <= right:
-                if i<=j: answer.append(j+1)
-                else: answer.append(i+1)
+    for i in range(left, right+1):
+        answer.append(max(i//n, i%n)+1)
     return answer
 
 ans = solution(3,2,5)# n*i+j
