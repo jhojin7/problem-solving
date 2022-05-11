@@ -5,6 +5,7 @@ import json
 # for solving problems on leetcode
 from typing import *
 import itertools, collections
+import heapq
 
 class Solver:
     """ Leetcode Solver. 
