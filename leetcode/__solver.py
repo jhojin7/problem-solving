@@ -7,6 +7,12 @@ from typing import *
 import itertools, collections
 import heapq
 
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 class Solver:
     """ Leetcode Solver. 
     Runs the LAST METHOD in Solution class 
@@ -34,8 +40,8 @@ class Solver:
 
         ret = json.dumps({
             'name':name,
-            'input':args,
-            'output':_output
+            'input':str(args),
+            'output':str(_output)
         })
         print(ret)
         return ret
