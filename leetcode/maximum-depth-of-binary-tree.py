@@ -71,7 +71,9 @@ root = \
         TreeNode(9),
         TreeNode(20,
             TreeNode(15),TreeNode(7)))
-
-root = []
-
 Solver.solve(Solution,root)
+
+arr = [3,9,20,None,None,15,7]
+tree = TreeNode.makeTree(TreeNode,arr)
+# TreeNode.printInOrder(TreeNode,tree)
+Solver.solve(Solution,tree)
