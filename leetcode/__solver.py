@@ -19,40 +19,66 @@ class TreeNode:
         if i<len(rootList) and rootList[i] != None:
             tmp = TreeNode(rootList[i],None,None)
             node = tmp
-            node.left = self.insertLevelOrder(TreeNode, rootList,2*i+1)
-            node.right = self.insertLevelOrder(TreeNode, rootList,2*i+2)
+            node.left = self.insertLevelOrder(rootList,2*i+1)
+            node.right = self.insertLevelOrder(rootList,2*i+2)
             return node 
 
     def printInOrder(self,node):
         if node!=None:
-            print(node.val)
-            self.printInOrder(self,node.left)
-            self.printInOrder(self,node.right)
+            print(node.val,end=' ')
+            self.printInOrder(node.left)
+            self.printInOrder(node.right)
 
     def makeTree(self,rootList:list):
         """ https://www.geeksforgeeks.org/construct-complete-binary-tree-given-array """
-        return self.insertLevelOrder(TreeNode,rootList,0)
+        if rootList == []:
+            return TreeNode(None)
+        return self.insertLevelOrder(rootList,0)
 
 class Solver:
     """ Leetcode Solver. 
-    Runs the LAST METHOD in Solution class 
+    --Runs the LAST METHOD in Solution class--
     and returns its return values.
     **TARGET METHOD MUST BE POSITIONED AT THE END** """
-    def solve(Solution, *args):
+    def solve(Solution, sol_name, *args):
         if Solution is None or args is None:
-            return
+            return ValueError
         cl = Solution
         members = inspect.getmembers(cl)
+        output = None
 
-        # target function MUST ALWAYS be the last one
-        target_method = members[-1]
-        (name, f) = target_method
-        _output = f(cl,*args)
+        print(members[-5:])
+        # # target function MUST ALWAYS be the last one
+        # target_method = members[-1]
+        for name,f in members:
+            if name==sol_name:
+                output = f(cl,*args)
 
         ret = json.dumps({
             'name':name,
             'input':str(args),
-            'output':str(_output)
+            'output':str(output)
         })
         print(ret)
         return ret
+    
+    def solve2(method, *args):
+        print(inspect.isfunction(method),method.__class__, type(method).__class__)
+        print(method.im_class.__name__)
+        print(method.__qualname__)
+        print(method.__name__, method.__doc__)
+        spec = inspect.getfullargspec(method)
+        print(spec, args)#, inspect.getclasstree(method))
+        output = method(method,args)
+        print(output)
+
+# def execute(function, *args):
+
+
+
+if __name__=="__main__":
+    print(inspect.signature(Solver.solve))
+    # print(Solver.solve.__setattr__('sol_name','bbb'))
+    # print(Solver.solve2.__annotations__)
+    # print(inspect.getmro(Solver.solve)[0].__name__)
+    # Solver.solve2(TreeNode.makeTree,[1,2,3,3])
