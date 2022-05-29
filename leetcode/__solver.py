@@ -35,6 +35,41 @@ class TreeNode:
             return TreeNode(None)
         return self.insertLevelOrder(rootList,0)
 
+
+class TrieNode:
+    """https://leetcode.com/submissions/detail/708492521/"""
+    def __init__(self):
+        self.isWord = False
+        self.children = collections.defaultdict(TrieNode)
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word: str) -> None:
+        print(word)        
+        node = self.root
+        for ch in word:
+            node = node.children[ch]
+        node.isWord = True
+        
+    def search(self, word: str) -> bool:
+        node = self.root
+        for ch in word:
+            if ch not in node.children.keys():
+                return False
+            node = node.children[ch]
+        return node.isWord
+
+    def startsWith(self, prefix: str) -> bool:
+        node = self.root
+        for ch in prefix:
+            if ch not in node.children.keys():
+                return False
+            node = node.children[ch]
+        return True
+
+
 class Solver:
     """ Leetcode Solver. 
     --Runs the LAST METHOD in Solution class--
