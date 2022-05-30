@@ -1,8 +1,6 @@
 """
 https://leetcode.com/submissions/detail/710638264/
 """
-from calendar import LocaleHTMLCalendar
-from threading import local
 from __solver import *
 class Solution:
     def mergeTwoLists(self, l1,l2):
