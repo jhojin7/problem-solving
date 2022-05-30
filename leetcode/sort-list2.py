@@ -1,8 +1,11 @@
 """
 https://leetcode.com/submissions/detail/710638264/
 """
+<<<<<<< HEAD
 from calendar import LocaleHTMLCalendar
 from threading import local
+=======
+>>>>>>> 1212ba85779c9314713ad1ec4e6499a3a9029e80
 from __solver import *
 class Solution:
     def mergeTwoLists(self, l1,l2):
@@ -25,6 +28,7 @@ class Solution:
         l1 = self.sortList(head)
         l2 = self.sortList(slow)
         return self.mergeTwoLists(l1,l2)
+<<<<<<< HEAD
     
     def localSortlist(self,head:ListNode):
         node = head
@@ -51,3 +55,11 @@ localhead = Solution().localSortlist(head)
 while localhead:
     print(localhead.val)
     localhead = localhead.next
+=======
+
+head = ListNode(3,ListNode(5,ListNode(4,ListNode(2,ListNode(1)))))
+solhead = Solution().sortList(head)
+while solhead:
+    print(solhead.val)
+    solhead = solhead.next
+>>>>>>> 1212ba85779c9314713ad1ec4e6499a3a9029e80

@@ -4,6 +4,9 @@ https://leetcode.com/submissions/detail/701944961/
 """
 from __solver import *
 class Solution:
+    def dfs(edges, connections, edge, visited):
+        visited.append(edge)
+        pass
     def criticalConnections(self, n: int, connections: List[List[int]]) -> List[List[int]]:
         # prep edges
         edges = collections.defaultdict(list)
@@ -31,7 +34,9 @@ class Solution:
         for src,dest in connections: 
             print("src dest",src,dest)
             # dfs
-            queue = []
+            visited = []
+            # dfs(edges, connections, , visited)
+
 
             # # bfs
             # queue = collections.deque(edges[src])
