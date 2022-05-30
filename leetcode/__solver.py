@@ -6,6 +6,7 @@ import json
 from typing import *
 import itertools, collections
 import heapq
+import math
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -69,6 +70,55 @@ class Trie:
             node = node.children[ch]
         return True
 
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+    def printListFromNode(self) -> None:
+        node = self
+        if not node:
+            print("End of list")
+            return
+        while node:
+            print(node.val,end=" ")
+            node = node.next
+        print("\n")
+
+class SinglyLinkedList:
+    def __init__(self):
+        # self.head = ListNode()
+        self.head = None
+        
+    def initList(self,vals=[]):
+        print(vals)
+        # head = ListNode()
+        # node = head
+        # for val in vals:
+        #     node.next = ListNode(val)
+        #     node = node.next
+        #     print(node.val)
+        # return head
+        self.head = ListNode(vals[0])
+        node = self.head
+        for val in vals[1:]:
+            node.next = ListNode(val)
+            node = node.next
+        # self.head = head
+        print(self.head.next)
+        print(self.head.val,self.head.val)
+        return self.head
+
+    def printList(self) -> None:
+        node = self.head
+        if not node:
+            print("No list")
+            return
+        while node:
+            print(node.val,end=" ")
+            node = node.next
+        print("\n")
 
 class Solver:
     """ Leetcode Solver. 
