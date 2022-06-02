@@ -17,4 +17,14 @@ class Solution:
 # 11
 # 128
 # 4294967293
-print(Solution().hammingWeight(11))
+# print(Solution().hammingWeight(11))
+
+# n & n-1 removes one 1 from bin(n)
+# repeat this until n=0 and return cnt
+n = 31 # format(31,"032b")
+print(n)
+cnt = 0
+while n:
+    n &= n-1
+    cnt += 1
+print(cnt)
