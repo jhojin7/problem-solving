@@ -4,8 +4,8 @@ import json
 
 # for solving problems on leetcode
 from typing import *
-import itertools, collections
-import heapq, math, bisect
+import itertools, collections, functools
+import heapq, math, bisect, operator
 
 # Definition for a binary tree node.
 class TreeNode:
