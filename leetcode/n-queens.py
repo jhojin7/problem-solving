@@ -1,4 +1,7 @@
 """
+https://leetcode.com/submissions/detail/714717461/
+https://leetcode.com/submissions/detail/714711918/
+refer to n-queens-ii for AC
 """
 from __solver import *
 class Solution:
@@ -58,19 +61,3 @@ class Solution:
             ret.append(make_board(queens))
         return ret
 print(Solution().solveNQueens(5))
-
-
-output = [
-    ["Q....","..Q..","....Q",".Q...","...Q."],
-    [".Q...","...Q.","Q....","..Q..","....Q"],
-    ["..Q..","Q....","...Q.",".Q...","....Q"],
-    ["...Q.","Q....","..Q..","....Q",".Q..."]]
-expected = [
-    ["Q....","..Q..","....Q",".Q...","...Q."],
-    [
-    "Q....",
-    "...Q.",
-    ".Q...",
-    "....Q",
-    "..Q.."],
-    [".Q...","...Q.","Q....","..Q..","....Q"],[".Q...","....Q","..Q..","Q....","...Q."],["..Q..","Q....","...Q.",".Q...","....Q"],["..Q..","....Q",".Q...","...Q.","Q...."],["...Q.","Q....","..Q..","....Q",".Q..."],["...Q.",".Q...","....Q","..Q..","Q...."],["....Q",".Q...","...Q.","Q....","..Q.."],["....Q","..Q..","Q....","...Q.",".Q..."]]
