@@ -121,10 +121,21 @@ class SinglyLinkedList:
         print("\n")
 
 class Solver:
-    """ Leetcode Solver. 
-    --Runs the LAST METHOD in Solution class--
-    and returns its return values.
-    **TARGET METHOD MUST BE POSITIONED AT THE END** """
+    def __init__(self,func, *args):
+        # sol = Solver(Solution().haha,
+        # 1,"a",[1,2,3],["foo","bar"])
+        print(func,*args)
+        print(func("hello world"))
+
+    # def __init__(self,obj,func,*args):
+    #     self.obj = obj
+    #     self.func = func
+    #     print(obj,func,*args)
+    #     print(func(obj,"hello from solver"))
+    #     self.solve2(func)
+
+    # def all_tests(testcases):
+
     def solve(Solution, sol_name, *args):
         if Solution is None or args is None:
             return ValueError
@@ -157,13 +168,21 @@ class Solver:
         output = method(method,args)
         print(output)
 
-# def execute(function, *args):
+    # def execute(function, *args):
 
-
-
-if __name__=="__main__":
-    print(inspect.signature(Solver.solve))
-    # print(Solver.solve.__setattr__('sol_name','bbb'))
-    # print(Solver.solve2.__annotations__)
-    # print(inspect.getmro(Solver.solve)[0].__name__)
-    # Solver.solve2(TreeNode.makeTree,[1,2,3,3])
+def testcases(inputs:str, groupby:int)->list:
+    """ Function that parses lines of testcase inputs and returns a list. """
+    from ast import literal_eval
+    inputs = inputs.splitlines()
+    _params = []
+    tmp = []
+    while inputs:
+        arg = inputs.pop(0)
+        if arg=='': continue
+        x = literal_eval(arg)
+        tmp.append(x)
+        _params.append(x)
+        # if len(tmp) == groupby:
+        #     _params.append(tuple(tmp))
+        #     tmp = []
+    return _params
