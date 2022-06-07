@@ -170,19 +170,19 @@ class Solver:
 
     # def execute(function, *args):
 
-def testcases(inputs:str, groupby:int)->list:
-    """ Function that parses lines of testcase inputs and returns a list. """
+def testcases(inputs:str, groupby:int = 1)->collections.deque:
+    """ Function that parses lines of testcase inputs and returns a deque. 
+    groupby: number of parameters for function
+    """
     from ast import literal_eval
     inputs = inputs.splitlines()
-    _params = []
-    tmp = []
+    _params, tmp = [], []
     while inputs:
         arg = inputs.pop(0)
         if arg=='': continue
         x = literal_eval(arg)
         tmp.append(x)
-        _params.append(x)
-        # if len(tmp) == groupby:
-        #     _params.append(tuple(tmp))
-        #     tmp = []
-    return _params
+        if len(tmp) == groupby:
+            _params.append(tuple(tmp))
+            tmp = []
+    return collections.deque(_params)
