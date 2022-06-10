@@ -1,18 +1,26 @@
 """
 dfs와bfs
 https://www.acmicpc.net/source/44399814
+with bisect.insort: https://www.acmicpc.net/source/44400346
 """
 import sys
 from io import StringIO
+# 1000 1 1000
+# 999 1000
 testcases = """
-1000 1 1000
-999 1000
+4 5 1
+1 2
+1 3
+1 4
+2 4
+3 4
 """.strip()
 # https://stackoverflow.com/a/5062926/3413574
 # https://stackoverflow.com/a/34168892/3413574
 sys.stdin = StringIO(testcases)
 ###############################################
 
+import bisect
 import collections
 def dfs(node, _visited:list):
     # visit
@@ -46,12 +54,14 @@ N, M, start= map(int,input().split())
 edges = collections.defaultdict(list)
 for _ in range(M):
     src, dest = map(int,input().split())
-    edges[src].append(dest)
-    edges[dest].append(src)
+    bisect.insort(edges[src],dest)
+    bisect.insort(edges[dest],src)
+    # edges[src].append(dest)
+    # edges[dest].append(src)
 
-# sort for traversal order
-for n in range(M):
-    edges[n].sort()
+# # sort for traversal order
+# for n in range(M):
+#     edges[n].sort()
 
 visited = []
 dfs(start, visited)
