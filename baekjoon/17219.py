@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 """
 problem: https://www.acmicpc.net/problem/17219
 ac: https://www.acmicpc.net/source/44427342
 """
+=======
+>>>>>>> eacdbed0c22961577a305d645be2caadfec5c8dd
 import sys, io
 tc = """
 16 4
