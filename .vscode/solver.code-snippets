@@ -1,0 +1,21 @@
+{
+	"Baekjoon Py Boilerplate": {
+		"scope": "python",
+		"prefix": "baekjoon",
+		"body": [
+			"\"\"\"",
+			"id: ${1:id}",
+			"title:${2:title}",
+			"ac: ",
+			"\"\"\"",
+			"import sys",
+			"from io import StringIO",
+			"sys.stdin = StringIO(\"\"\"",
+			"${3:stdin}",
+			"\"\"\".strip())",
+			"",
+			"$0"
+		],
+		"description": "Baekjoon OJ Py Boilerplate"
+	}
+}
