@@ -14,6 +14,13 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self) -> str:
+        return "{}(val: {}, left: {}, right: {})".format(
+            self.__class__.__name__, self.val,
+            not not self.left, not not self.right
+        )
+
+class BinaryTree:
     def insertLevelOrder(self,rootList,i):
         # level order insert
         if i<len(rootList) and rootList[i] != None:
