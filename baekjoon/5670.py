@@ -5,11 +5,6 @@ ac: https://www.acmicpc.net/source/44679037
 """
 import sys
 from io import StringIO
-# 4
-# hello
-# hell
-# heaven
-# goodbye
 sys.stdin = StringIO("""
 4
 hello
@@ -29,14 +24,6 @@ stress
 solstice
 ridiculous
 """.strip())
-# 7
-# structure
-# structures
-# ride
-# riders
-# stress
-# solstice
-# ridiculous
 
 import collections
 class TrieNode:
