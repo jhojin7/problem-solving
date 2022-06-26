@@ -1,0 +1,31 @@
+"""
+id: 15654
+title:N과M(5)
+ac:https://www.acmicpc.net/source/45056617
+"""
+import sys
+from io import StringIO
+sys.stdin = StringIO("""
+8 8
+8 7 6 5 4 3 2 1
+""".strip())
+
+import sys
+def dfs(visited:list, idx:int):
+    if len(visited) == M:
+        ans.append(visited)
+        return
+    for i,n in enumerate(arr):
+        if n in visited:
+            continue
+        dfs(visited+[n],i)
+
+N,M = map(int,sys.stdin.readline().split())
+arr = list(map(int,sys.stdin.readline().split())) 
+ans = []
+dfs([],0)
+for l in sorted(ans): 
+    for n in l:
+        sys.stdout.write(str(n)+' ')
+    sys.stdout.write("\n")
+    # print(*l,sep=' ')
