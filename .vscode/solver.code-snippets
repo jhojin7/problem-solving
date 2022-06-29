@@ -4,16 +4,17 @@
 		"prefix": "baekjoon",
 		"body": [
 			"\"\"\"",
-			"id: ${1:id}",
-			"title:${2:title}",
-			"ac: ",
+			"id: $TM_FILENAME_BASE",
+			"title:${1:title}",
+			"ac:",
 			"\"\"\"",
 			"import sys",
 			"from io import StringIO",
 			"sys.stdin = StringIO(\"\"\"",
-			"${3:stdin}",
 			"\"\"\".strip())",
 			"",
+			"import sys",
+			"input = sys.stdin.readline",
 			"$0"
 		],
 		"description": "Baekjoon OJ Py Boilerplate"
