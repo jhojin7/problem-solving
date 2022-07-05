@@ -51,7 +51,13 @@ def power(b):
 # print(power(n)[0][1])
 
 
-# 11021
-for i in range(int(input())):
-    a,b = map(int,input().split())
-    print("Case #{}:".format(i+1), a+b)
+# # 11021
+# for i in range(int(input())):
+#     a,b = map(int,input().split())
+#     print("Case #{}:".format(i+1), a+b)
+
+# # 11720
+# https://www.acmicpc.net/source/45582006
+n,*s = [*open(0)];S=0
+for x in s[0].strip():S+=int(x)
+print(S)
