@@ -21,3 +21,37 @@ def q25305():
     print(N,k,scores)
     print(scores[k-1])
     pass
+
+# fibonacci https://mortada.net/fibonacci-numbers-in-python.html
+# https://stackoverflow.com/questions/494594/how-to-write-the-fibonacci-sequence
+def matmul(matA,matB):
+    ans = []
+    for i in range(N):
+        ans.append([0 for _ in range(N)])
+        for j in range(N):
+            # ans[i][j] %= 1000
+            for k in range(N):
+                # print((i,k),(k,j))
+                ans[i][j] += matA[i][k] * matB[k][j]
+    return ans
+
+def power(b):
+    if b == 1:
+        return (mat)
+    tmp = power(b//2)
+    tmptmp = matmul(tmp,tmp)
+    if b%2 == 1:
+        ret = matmul(tmptmp,mat)
+        return (ret)
+    else:
+        return (tmptmp)
+
+# mat, N = [[1,1],[1,0]], 2
+# n = int(input())
+# print(power(n)[0][1])
+
+
+# 11021
+for i in range(int(input())):
+    a,b = map(int,input().split())
+    print("Case #{}:".format(i+1), a+b)
