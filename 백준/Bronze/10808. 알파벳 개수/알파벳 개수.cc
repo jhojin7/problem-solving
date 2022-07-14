@@ -1,17 +1,10 @@
 #include <bits/stdc++.h>
-
+int cnt[26];
 int main(){
     using namespace std;
+    ios::sync_with_stdio(0);
     string str;
-    int cnt[26] = {0};
     cin >> str;
-    for (auto c:str){
-        cnt[c-'a'] = cnt[c-'a']+1;
-    }
-
-    for (auto i:cnt){
-        cout << i << " ";
-    }
-    cout << "\n";
-    return 0;
+    for (char c:str) cnt[c-'a']++;
+    for (int i:cnt) cout << i << " ";
 }
