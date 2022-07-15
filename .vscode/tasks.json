@@ -2,19 +2,45 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
+    "type": "shell",
+    "echoCommand": true,
+    "presentation": {
+        "reveal": "always"
+    },
     "tasks": [
         {
             "label": "echo",
             "type": "shell",
             "command": "echo Hello"
         },
-
         {
             "label": "boj pypy3",
             "type": "shell",
             "command": "pypy3 -c \"import py_compile; py_compile.compile(r'${file}')\"; /usr/bin/time pypy3 ${file}",
             "presentation": {
+                "panel": "new",
                 "reveal": "always",
+                "focus": true,
+                "clear": false,
+                "showReuseMessage": false
+            },
+            // https://stackoverflow.com/a/55132042/3413574
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "boj cpp17",
+            "type": "shell",
+            "command": "g++ ${file} -o ${workspaceFolder}/.stdio/cppout.o -O2 -Wall -lm -static -std=gnu++17 -DONLINE_JUDGE -DBOJ && ${workspaceFolder}/.stdio/cppout.o",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }
     ]

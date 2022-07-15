@@ -1,7 +1,7 @@
 {
-	"Baekjoon Py Boilerplate": {
+	"baekjoon pypy3": {
 		"scope": "python",
-		"prefix": "baekjoon",
+		"prefix": "baekjoon python",
 		"body": [
 			"\"\"\"",
 			"id: $TM_FILENAME_BASE",
@@ -18,5 +18,21 @@
 			"$0"
 		],
 		"description": "Baekjoon OJ Py Boilerplate"
+	},
+	"baekjoon cpp17": {
+		"scope": "cpp",
+		"prefix": "baekjoon cpp",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"std::string stdinp = R\"($0)\";",
+			"std::istringstream ccccccccccccccccin(stdinp);",
+			"using namespace std;",
+			"int main(){",
+			"    ios::sync_with_stdio(0);",
+			"",
+			"    return 0;",
+			"}",
+		],
+		"description": "Baekjoon OJ CPP17 Boilerplate"
 	}
 }
