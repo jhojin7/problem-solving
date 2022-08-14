@@ -1,0 +1,5 @@
+arr = map(int,input().split())
+a,b,c = sorted(arr)
+if a*a+b*b==c*c: print(1)
+elif a==b==c: print(2)
+else: print(0)
