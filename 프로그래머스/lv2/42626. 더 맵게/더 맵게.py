@@ -8,7 +8,6 @@ def solution(arr, K):
         b = heapq.heappop(arr)
         new = a+b*2
         heapq.heappush(arr, new)
-    print(arr)
     if arr[0]<K:
         return -1
     return i
