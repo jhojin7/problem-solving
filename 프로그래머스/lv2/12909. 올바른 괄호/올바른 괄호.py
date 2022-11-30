@@ -6,6 +6,5 @@ def solution(s):
             stack.pop()
         else:
             stack.append(c)
-    print(stack)
     if stack: return False
     else: return True
