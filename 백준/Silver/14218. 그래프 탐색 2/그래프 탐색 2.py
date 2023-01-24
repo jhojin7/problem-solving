@@ -13,21 +13,14 @@ for _ in range(q):
     v,w = map(int,input().split())
     graph[v].append(w)
     graph[w].append(v)
-
-    dist[1]=0
-    queue = []
-    heapq.heappush(queue,(0,1))
-    vis=set()
+    
+    queue = collections.deque([1])
+    vis = [-1 for _ in range(n+1)]
+    vis[1]=0
     while queue:
-        cnt,cur = heapq.heappop(queue)
-        if cur in vis: continue
-        vis.add(cur)
-        if dist[cur]<cnt: continue
+        cur = queue.popleft()
         for nxt in graph[cur]:
-            if cnt < dist[nxt]:
-                dist[nxt] = cnt+1
-                heapq.heappush(queue,(cnt+1,nxt))
-    for d in dist[1:]:
-        if d==math.inf: print(-1,end=' ')
-        else: print(d,end=' ')
-    print()
+            if vis[nxt]!=-1: continue
+            queue.append(nxt)
+            vis[nxt]=vis[cur]+1
+    print(*vis[1:])
