@@ -12,5 +12,4 @@ def solution(n, times):
         else: 
             ans = m
             r=m-1
-    print(ans)
     return ans
