@@ -6,44 +6,21 @@ def inputchars():return input().strip()
 N = int(input())
 M = int(input())
 S = collections.deque(inputchars())
-# print(S)
-stack = collections.deque()
-ans =0
-n = 0
-while S:
-    # print(stack,n,ans)
-    if not stack:
-        stack.append(S.popleft())
-        continue
-    if n==N:
-        ans+=1
-        n-=1
-        # stack = []
-        stack.popleft()
-        stack.popleft()
-        continue
-    if stack[0]=='O':
-        stack = collections.deque()
-        continue
 
-    x = S.popleft()
-    if stack[-1]=='I' and x=='O':
-        stack.append(x)
-    elif stack[-1]=='O' and x=='I':
-        stack.append(x)
-        n+=1
-    elif stack[-1]=='I' and x=='I':
-        stack = collections.deque(['I'])
-        n = 0
-    elif stack[-1]=='O' and x=='O':
-        stack = collections.deque()
-        n = 0
-    # if x=='I' and stack[-1]=='O':
-if n==N:
-    ans+=1
-    n-=1
-    # # stack = []
-    # stack.popleft()
-    # stack.popleft()
-# print(ans,stack)
+i = 0
+ioi = 0
+ans = 0
+while i<len(S)-2:
+    IOI = [S[i],S[i+1],S[i+2]]
+    # print(ioi,IOI)
+    if ''.join(IOI)=="IOI":
+        ioi+=1
+        i+=2
+        if ioi==N:
+            ans+=1
+            ioi-=1
+            # print(ans)
+    else:
+        i+=1
+        ioi=0
 print(ans)
