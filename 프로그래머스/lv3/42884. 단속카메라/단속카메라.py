@@ -1,20 +1,11 @@
 import math
 def solution(routes):
-    routes.sort()
-    l,r = routes[0]
-    cam=0
-    for a,b in routes[1:]:
-        #print(l,r)
-        if r<a:
-            cam+=1
-            l,r = a,b
-            #print(cam)
+    routes.sort(key=lambda x:x[1])
+    cam = -30009
+    ans = 0
+    for a,b in routes:
+        if cam<a:
+            cam = b
+            ans+=1
             continue
-        l = max(l,a)
-        r = min(r,b)
-    #print(l,r,cam)
-    return cam+1
-        
-        
-    
-    
+    return ans
