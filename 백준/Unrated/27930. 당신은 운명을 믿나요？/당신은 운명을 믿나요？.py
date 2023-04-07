@@ -7,9 +7,9 @@ for c in s:
         y.remove(c)
     if c in k:
         k.remove(c)
-    if not y:
-        print("YONSEI")
-        exit()
     if not k:
         print("KOREA")
+        exit()
+    if not y:
+        print("YONSEI")
         exit()
