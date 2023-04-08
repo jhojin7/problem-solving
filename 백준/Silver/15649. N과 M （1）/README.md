@@ -8,7 +8,7 @@
 
 ### 분류
 
-백트래킹(backtracking)
+Backtracking
 
 ### 문제 설명
 
