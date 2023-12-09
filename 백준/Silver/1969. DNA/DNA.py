@@ -1,24 +1,18 @@
-N,M = map(int,input().split())
-strs = []
-for _ in range(N):
-    strs.append(input().strip())
-strs.sort()
-
-def hamming(a,b):
-    ans = 0
-    for x,y in zip(a,b):
-        if x!=y: ans+=1
-    return ans
-
+N, M = map(int, input().split())
+arr = [input().strip() for _ in range(N)]
 ans = ""
+acgts = []
 for j in range(M):
-    a,c,g,t = 0,0,0,0
+    d = 0
+    acgt = [0, 0, 0, 0]
     for i in range(N):
-        if strs[i][j]=='A': a+=1
-        if strs[i][j]=='C': c+=1
-        if strs[i][j]=='G': g+=1
-        if strs[i][j]=='T': t+=1
-    idx = [a,c,g,t].index(max([a,c,g,t]))
-    ans+=("ACGT"[idx])
+        acgt["ACGT".index(arr[i][j])] += 1
+    ans += "ACGT"[acgt.index(max(acgt))]
+
+ham = 0
+for x in arr:
+    for i in range(M):
+        if x[i] != ans[i]:
+            ham += 1
 print(ans)
-print(sum([hamming(ans,s) for s in strs]))
+print(ham)
