@@ -1,27 +1,13 @@
-import collections
-s = input().strip()
-evals = collections.defaultdict(int)
+arr = input().split('-')
+ans = 0
+if len(arr) == 1:
+    print(sum(list(map(int, arr[0].split('+')))))
+    exit()
 
-def op(left,right,op):
-    return eval(str(left)+op+str(right))
-
-def recurse(s):
-    # base case
-    if s.isdigit():
-        evals[s] = int(s)
-        return int(s)
-    # dp
-    if s in evals.keys():
-        return evals[s]
-    # recurse
-    choices = []
-    for i in range(len(s)):
-        if s[i] in "+-":
-            left = recurse(s[:i])
-            right = recurse(s[i+1:])
-            choices.append(op(left,right,s[i]))
-    evals[s] = min(choices)
-    return evals[s]
-
-ans = recurse(s)
+ans += sum(list(map(int, arr[0].split('+'))))
+for s in arr[1:]:
+    if '+' in s:
+        ans -= sum(list(map(int, s.split('+'))))
+    else:
+        ans -= int(s)
 print(ans)
