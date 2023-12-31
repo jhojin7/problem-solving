@@ -22,28 +22,18 @@ public class Main {
         long[][][] dp = new long[N + 1][M + 1][3];
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= M; j++) {
-                // dp[i][j][0] = (dp[i - 1][j][0] + dp[i][j - 1][0])%mod - dp[i - 1][j - 1][0];
                 dp[i][j][0] = (dp[i-1][j][0] - dp[i-1][j-1][0]+mod)%mod + dp[i][j-1][0];
                 dp[i][j][0] %= mod;
                 if (esm[i - 1][j - 1] == 'E')
                     dp[i][j][0]++;
                 dp[i][j][0] %= mod;
-            }
-        }
 
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= M; j++) {
-                // dp[i][j][1] = (dp[i - 1][j][1] + dp[i][j - 1][1])%mod - dp[i - 1][j - 1][1];
                 dp[i][j][1] = (dp[i-1][j][1] - dp[i-1][j-1][1]+mod)%mod + dp[i][j-1][1];
                 dp[i][j][1] %= mod;
                 if (esm[i - 1][j - 1] == 'S')
                     dp[i][j][1] += dp[i][j][0];
                 dp[i][j][1] %= mod;
-            }
-        }
 
-        for (int i = 1; i <= N; i++) {
-            for (int j = 1; j <= M; j++) {
                 dp[i][j][2] = (dp[i-1][j][2] - dp[i-1][j-1][2]+mod)%mod + dp[i][j-1][2];
                 dp[i][j][2] %= mod;
                 if (esm[i - 1][j - 1] == 'M')
