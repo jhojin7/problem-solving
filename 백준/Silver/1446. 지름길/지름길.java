@@ -23,27 +23,19 @@ public class Main {
                             );
 
         int[] dp = new int[10001];
-        for (int i=0;i<10001;i++)dp[i] = i;
-
+        for (int i=0;i<10001;i++)
+            dp[i] = i;
+        
         for (int i=0;i<10001;i++){
-            // System.out.println(Arrays.toString(arr[i]));
             for (int j=0;j<N;j++){
                 if (arr[j][0] == i)
                     dp[arr[j][1]] = Math.min(
-                        // dp[i]+dp[arr[j][1]],
-                        dp[arr[j][1]],
-                        Math.min(
-                            dp[i]+arr[j][2],
-                            dp[i]+(arr[j][1]-arr[j][0])
-                        )
-                    );
+                        dp[arr[j][1]],dp[i]+arr[j][2]);
             }
             for (int j=i+1;j<10001;j++){
                 dp[j] = Math.min(dp[j],dp[j-1]+1);
             }
         }
-
         System.out.println(dp[D]);
-        // System.out.println(Arrays.toString(dp));
     }
 }
