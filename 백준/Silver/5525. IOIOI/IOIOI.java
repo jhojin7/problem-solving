@@ -8,21 +8,28 @@ public class Main {
         int M = Integer.parseInt(br.readLine());
         String S = br.readLine();
         int w = N*2+1;
-        boolean isIOI = true;
         int ans=0;
+        int cntN=0;
 
-        for (int i=0;i+w<=M;i++){
-            // System.out.println(i);
-            if (S.charAt(i)=='O') continue;
-            // System.out.println(S.substring(i,i+w));
-            isIOI = true;
-            for (int j=i+1;j<i+w;j++){
-                if (S.charAt(j-1)==S.charAt(j)) {
-                    isIOI=false;
-                    break;
+        int i=0;
+        while (i+2<M){
+            if (
+                S.charAt(i)=='I' &&
+                S.charAt(i+1)=='O' &&
+                S.charAt(i+2)=='I'
+            ){
+                cntN++;
+                i+=2;
+                if (cntN==N){
+                    ans++;
+                    cntN--;
                 }
+            } 
+            else {
+                i++;
+                cntN=0;
             }
-            if (isIOI) ans++;
+            
         }
         System.out.println(ans);
     }
