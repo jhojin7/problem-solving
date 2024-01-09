@@ -4,14 +4,13 @@ def solution(friends, gifts):
     N = len(friends)
     cnt = [[0 for _ in range(N)] for _ in range(N)]
     for ab in gifts:
-    	a,b = ab.split()
+        a,b = ab.split()
         a,b = friends.index(a), friends.index(b)
         cnt[a][b] +=1
-    print(cnt)
-    
+        
     ans = [[0,0,0,0] for _ in range(N)]
     for ab in gifts:
-    	a,b = ab.split()
+        a,b = ab.split()
         a,b = friends.index(a), friends.index(b)
         ans[a][0] = sum(cnt[a])
     for a in range(N):
@@ -31,7 +30,4 @@ def solution(friends, gifts):
                     ans[a][3]+=1
                 elif ans[a][2] < ans[b][2]:
                     ans[b][3]+=1
-                    
-    print(ans)
     return max([ans[i][3] for i in range(N)])
-        
