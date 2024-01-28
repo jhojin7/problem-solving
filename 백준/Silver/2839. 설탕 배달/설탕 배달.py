@@ -1,9 +1,12 @@
-N=int(input())
-cnt =0
-s = 99999
-for i in range(1001):
-    for j in range(1668):
-        if 5*i+3*j==N:
-            s=min(s,i+j)
-if s==99999:print(-1)
-else: print(s)
+N = int(input())
+ans = 100000
+for i in range(5000//3+1):
+    for j in range(5000//5+1):
+        if 3*i+5*j > N:
+            break
+        elif 3*i+5*j == N:
+            ans = min(ans, i+j)
+if ans == 100000:
+    print(-1)
+else:
+    print(ans)
