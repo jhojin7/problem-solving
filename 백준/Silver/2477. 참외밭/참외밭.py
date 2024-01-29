@@ -1,26 +1,24 @@
+K = int(input())
 arr = []
-k=int(input())
-d=[[] for _ in range(5)]
+x, y = 0, 0
 for _ in range(6):
-    a,b = map(int,input().split())
-    d[a].append(b)
-    arr.append((a,b))
-arr.append(arr[0])
-direc = [a for a,b in arr]
-#13 41 24 32
-todel=0
-for i in range(len(direc)-1):
-    if (direc[i],direc[i+1])==(1,3):
-        todel=arr[i][1]*arr[i+1][1]
-    elif (direc[i],direc[i+1])==(4,1):
-        todel=arr[i][1]*arr[i+1][1]
-    elif (direc[i],direc[i+1])==(2,4):
-        todel=arr[i][1]*arr[i+1][1]
-    elif (direc[i],direc[i+1])==(3,2):
-        todel=arr[i][1]*arr[i+1][1]
-
-tmp=[]
-for i in range(1,5):
-    if len(d[i])==1:tmp.append(max(d[i]))
-total=tmp[0]*tmp[1]
-print(k*(total-todel))
+    a, b = map(int, input().split())
+    arr.append((a, b))
+    if a in [1, 2]:
+        x += b
+    if a in [3, 4]:
+        y += b
+x //= 2
+y //= 2
+aa = [a for a, _ in arr]
+aa += [aa[0]]
+arr += [arr[0]]
+area = x*y
+yes = True
+todel = 0
+for i in range(len(aa)-1):
+    comb = ''.join(map(str, aa[i:i+2]))
+    if comb in ["13", "41", "24", "32"]:
+        todel = arr[i][1]*arr[i+1][1]
+        break
+print((area-todel)*K)
